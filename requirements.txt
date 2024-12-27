@@ -1,2 +1,2 @@
-sentence_transformers
+sentence-transformers
 torch
