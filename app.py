@@ -17,7 +17,7 @@ embeddings2 = model.encode([sentence2], convert_to_tensor=True)
 cosine_similarities = torch.nn.functional.cosine_similarity(embeddings1, embeddings2)
 
 # Print similarity score
-print(f"Similarity score: {cosine_similarities.item()}")
+# print(f"Similarity score: {cosine_similarities.item()}")
 
 
 
@@ -28,9 +28,6 @@ import streamlit as st
 from sentence_transformers import SentenceTransformer
 import torch
 import time
-from PIL import Image
-import base64
-import os
 
 # Load the pre-trained sentence-transformers model
 model = SentenceTransformer('sentence-transformers/all-MiniLM-L6-v2')
