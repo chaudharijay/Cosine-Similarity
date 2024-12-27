@@ -59,6 +59,39 @@ st.set_page_config(
     layout="wide",
     initial_sidebar_state="expanded"
 )
+st.markdown(
+    """
+    <style>
+    .stApp {
+        background-color: #000000; /* Dark background */
+        color: #c9d1d9; /* Light text color */
+    }
+    .st-h1 {
+        color: #ffffff; /* White title */
+    }
+    .st-expanderHeader {
+        background-color: #374151; /* Darker expander header */
+        color: #c9d1d9; /* Light text color */
+    }
+    .st-expanderBody {
+        background-color: #282c34; /* Dark background inside expander */
+    }
+    .st-button {
+        background-color: #4285f4; /* Blue button */
+        color: #ffffff; 
+    }
+    .st-error {
+        background-color: #ff5722; /* Red error background */
+        color: #ffffff;
+    }
+    .st-success {
+        background-color: #4caf50; /* Green success background */
+        color: #ffffff;
+    }
+    </style>
+    """,
+    unsafe_allow_html=True,
+)
 
 
 # Add a container for the main content
@@ -75,17 +108,24 @@ with st.container():
 
     with col1:
       with st.expander("Source Sentence"):
-        with st.spinner("Analyzing source sentence..."):
-          source_sentence = st.text_area(label="Enter the source sentence:", height=100)
+        with st.spinner("Analyzing source sentence..."): 
+          source_sentence = st.text_area(label="Enter the source sentence:", height=100) 
 
     with col2:
       with st.expander("Comparison Sentences"):
         compare_sentences = []
-        for i in range(3):
-          with st.spinner(f"Analyzing sentence {i+1}..."):
-            compare_sentence = st.text_area(label=f"Enter sentence {i+1} to compare (optional):", key=f"compare_sentence_{i}", height=100)
-            if compare_sentence:
-              compare_sentences.append(compare_sentence)
+        compare_sentence1 = st.text_area(label="Enter sentence 1 to compare (optional):", key="compare_sentence_1", height=100)
+        if compare_sentence1:
+          compare_sentences.append(compare_sentence1)
+
+        # Display additional comparison sentences below the first one
+        compare_sentence2 = st.text_area(label="Enter sentence 2 to compare (optional):", key="compare_sentence_2", height=100)
+        if compare_sentence2:
+          compare_sentences.append(compare_sentence2)
+        compare_sentence3 = st.text_area(label="Enter sentence 3 to compare (optional):", key="compare_sentence_3", height=100)
+        if compare_sentence3:
+          compare_sentences.append(compare_sentence3)
+
 
   # Add a container for the results
   with st.container():
